@@ -10,8 +10,8 @@ export enum NavItem {
   NONE,
 }
 
-const selectedClasses = "text-lg pb-1 px-1 border-b-2 border-blue-700";
-const defaultClasses = "text-lg pb-1 px-1";
+const selectedClasses = "text-lg mb-1 mx-1 border-b-2 border-blue-700";
+const defaultClasses = "text-lg mb-1 nx-1";
 
 const Nav: React.FC<{selected: NavItem}> = ({selected}) => {
   return (
@@ -20,8 +20,16 @@ const Nav: React.FC<{selected: NavItem}> = ({selected}) => {
       <Link href="/about"><a className={selected === NavItem.ABOUT ? selectedClasses : defaultClasses}>About</a></Link>
       <Link href=""><a className={selected === NavItem.TECH ? selectedClasses : defaultClasses}>Tech</a></Link>
       <Link href=""><a className={selected === NavItem.BOOKS ? selectedClasses : defaultClasses}>Books</a></Link>
-      <Link href=""><a className={selected === NavItem.GITHUB ? selectedClasses : defaultClasses}>GitHub</a></Link>
-      <Link href=""><a className={selected === NavItem.LINKEDIN ? selectedClasses : defaultClasses}>LinkedIn</a></Link>
+      <Link href="https://www.github.com/pulpdrew">
+        <a>
+          <img alt="GitHub" src="/github.png" className="w-8 h-8 mx-1 mb-1"></img>
+        </a>
+      </Link>
+      <Link href="https://linkedin.com/in/pulpdrew">
+        <a>
+          <img alt="LinkedIn" src="/linkedin.png" className="w-8 h-8 mx-1 mb-1"></img>
+        </a>
+      </Link>
     </nav>
   );
 }
