@@ -3,11 +3,17 @@ import PostService from "../../lib/post-service";
 import Post from "../../lib/post";
 import Nav, { NavItem } from "../../components/nav";
 import styles from "../../styles/post.module.css";
+import Head from "next/head";
 
 const PostPage: React.FC<{post: Post}> = ({ post }) => {
   return (
     <div>
+      <Head>
+        <title>{post.title}</title>
+      </Head>
+      
       <Nav selected={NavItem.NONE}></Nav>
+      
       <div className="sm:container mx-auto">
         <h1 className="text-3xl mt-5 mb-1">{post.title}</h1>
         <h2 className="text-xl mb-5">{post.date}</h2>
