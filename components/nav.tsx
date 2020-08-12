@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 export enum NavItem {
   MAIN,
   ABOUT,
@@ -5,17 +7,21 @@ export enum NavItem {
   BOOKS,
   GITHUB,
   LINKEDIN,
+  NONE,
 }
+
+const selectedClasses = "text-lg pb-1 px-1 border-b-2 border-blue-700";
+const defaultClasses = "text-lg pb-1 px-1";
 
 const Nav: React.FC<{selected: NavItem}> = ({selected}) => {
   return (
     <nav className="sm:container flex flex-wrap mx-auto justify-between my-10">
-      <a href="" className={`text-lg pb-1 px-1 ${selected === NavItem.MAIN ? "border-b-2 border-blue-500" : ""}`}>Pulpdrew</a>
-      <a href="" className={`text-lg pb-1 px-1 ${selected === NavItem.ABOUT ? "border-b-2 border-blue-500" : ""}`}>About</a>
-      <a href="" className={`text-lg pb-1 px-1 ${selected === NavItem.TECH ? "border-b-2 border-blue-500" : ""}`}>Tech</a>
-      <a href="" className={`text-lg pb-1 px-1 ${selected === NavItem.BOOKS ? "border-b-2 border-blue-500" : ""}`}>Books</a>
-      <a href="" className={`text-lg pb-1 px-1 ${selected === NavItem.GITHUB ? "border-b-2 border-blue-500" : ""}`}>GitHub</a>
-      <a href="" className={`text-lg pb-1 px-1 ${selected === NavItem.LINKEDIN ? "border-b-2 border-blue-500" : ""}`}>LinkedIn</a>
+      <Link href="/"><a className={selected === NavItem.MAIN ? selectedClasses : defaultClasses}>Pulpdrew</a></Link>
+      <Link href=""><a className={selected === NavItem.ABOUT ? selectedClasses : defaultClasses}>About</a></Link>
+      <Link href=""><a className={selected === NavItem.TECH ? selectedClasses : defaultClasses}>Tech</a></Link>
+      <Link href=""><a className={selected === NavItem.BOOKS ? selectedClasses : defaultClasses}>Books</a></Link>
+      <Link href=""><a className={selected === NavItem.GITHUB ? selectedClasses : defaultClasses}>GitHub</a></Link>
+      <Link href=""><a className={selected === NavItem.LINKEDIN ? selectedClasses : defaultClasses}>LinkedIn</a></Link>
     </nav>
   );
 }

@@ -1,18 +1,15 @@
 import Head from 'next/head'
 import Nav, { NavItem } from '../components/nav';
 import PostSummary from '../components/post-summary';
-import Post from '../types/post';
+import Post from '../lib/post';
+import { GetStaticProps } from 'next';
+import PostService from '../lib/post-service';
 
-const Home: React.FC<any> = (x) =>  {
+interface HomeProps {
+  posts: Post[];
+}
 
-  const post: Post = {
-    title: 'RLox',
-    date: new Date(),
-    slug: 'rlox',
-    html: '',
-    summary: 'Lox is a programming language designed by Bob Nystrom for use in his excellent book, "Crafting Interpreters." Nystrom walks readers through building two Lox interpreters - a Tree-Walk interpreter written in Java and a Single Pass Bytecode Compiler + Stack-based VM written in C. After working my way through the book, I decided to implement a third version of the interpreter in Rust.',
-  }
-
+const Home: React.FC<HomeProps> = ({ posts }) =>  {
   return (
     <div>
       <Head>
@@ -22,11 +19,7 @@ const Home: React.FC<any> = (x) =>  {
       <Nav selected={NavItem.MAIN}></Nav>
 
       <main className="sm:container mx-auto mt-10">
-
-        <PostSummary post={post}></PostSummary>
-        <PostSummary post={post}></PostSummary>
-        <PostSummary post={post}></PostSummary>
-
+        {posts.map((post) => <PostSummary post={post} key={post.slug}></PostSummary>)}
       </main>
 
     </div>
@@ -34,3 +27,11 @@ const Home: React.FC<any> = (x) =>  {
 }
 
 export default Home;
+
+export const getStaticProps: GetStaticProps = async () => {
+  return {
+    props: {
+      posts: new PostService().getPosts(),
+    }
+  };
+};

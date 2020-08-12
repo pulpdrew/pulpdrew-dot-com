@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
+
+html {
+  @apply leading-relaxed;
+}
+
 @tailwind utilities;
+
+@import '../node_modules/highlight.js/styles/mono-blue.css';

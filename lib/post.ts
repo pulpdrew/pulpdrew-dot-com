@@ -1,6 +1,6 @@
 export default interface Post {
   title: string;
-  date: Date;
+  date: string;
   summary: string;
   slug: string;
   html: string;
