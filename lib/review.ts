@@ -2,18 +2,20 @@ import path from 'path';
 import MarkdownIt from 'markdown-it';
 import highlightjs from 'markdown-it-highlightjs';
 import { Slugged, Dated, mostRecentFirst, readMatters, Typed } from './utils';
-import { POST_TYPE } from './types';
+import { BOOK_REVIEW_TYPE } from './types';
 
-const POSTS_DIR = path.join(process.cwd(), 'posts');
+const BOOK_REVIEW_DIR = path.join(process.cwd(), 'reviews');
 
-export interface Post extends Slugged, Dated, Typed {
+export interface BookReview extends Slugged, Dated, Typed {
   title: string;
+  author: string;
+  link: string;
   summary: string;
   html: string;
   tags: string[];
 }
 
-export class PostService {
+export class BookReviewService {
 
   private md = new MarkdownIt();
 
@@ -21,9 +23,9 @@ export class PostService {
    this. md.use(highlightjs);
   }
 
-  getPosts(): Post[] {
-    return readMatters(POSTS_DIR)
-      .map<Post>((matter) => {
+  getReviews(): BookReview[] {
+    return readMatters(BOOK_REVIEW_DIR)
+      .map<BookReview>((matter) => {
         const html = this.md.render(matter.content);
 
         let date = '';
@@ -35,10 +37,12 @@ export class PostService {
 
         return {
           title: matter.data.title,
+          author: matter.data.author,
+          link: matter.data.link,
           summary: matter.data.summary,
           slug: matter.slug,
           tags: matter.data.tags,
-          type: POST_TYPE,
+          type: BOOK_REVIEW_TYPE,
           date,
           html,
         };

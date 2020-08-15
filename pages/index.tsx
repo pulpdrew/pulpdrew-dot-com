@@ -1,15 +1,17 @@
 import Head from 'next/head'
 import Nav, { NavItem } from '../components/nav';
 import PostSummary from '../components/post-summary';
-import Post from '../lib/post';
+import { Post, PostService } from '../lib/post';
 import { GetStaticProps } from 'next';
-import PostService from '../lib/post-service';
+import { BookReviewService } from '../lib/review';
+import { Slugged, Typed, mostRecentFirst, Dated } from '../lib/utils';
+import { BOOK_REVIEW_TYPE } from '../lib/types';
 
 interface HomeProps {
-  posts: Post[];
+  content: (Typed & Slugged)[];
 }
 
-const Home: React.FC<HomeProps> = ({ posts }) =>  {
+const Home: React.FC<HomeProps> = ({ content }) =>  {
   return (
     <div>
       <Head>
@@ -19,7 +21,13 @@ const Home: React.FC<HomeProps> = ({ posts }) =>  {
       <Nav selected={NavItem.MAIN}></Nav>
 
       <main className="sm:container mx-auto mt-10">
-        {posts.map((post) => <PostSummary post={post} key={post.slug}></PostSummary>)}
+        {content.map((item) => {
+          if (item.type === BOOK_REVIEW_TYPE) {
+            return <PostSummary post={item as Post} key={item.slug}></PostSummary>
+          } else {
+            return <PostSummary post={item as Post} key={item.slug}></PostSummary>
+          }
+        })}
       </main>
 
     </div>
@@ -29,9 +37,13 @@ const Home: React.FC<HomeProps> = ({ posts }) =>  {
 export default Home;
 
 export const getStaticProps: GetStaticProps = async () => {
+  const posts = new PostService().getPosts() as (Typed & Slugged & Dated)[];
+  const reviews = new BookReviewService().getReviews() as (Typed & Slugged & Dated)[];
+  const content = posts.concat(reviews).sort(mostRecentFirst);
+
   return {
     props: {
-      posts: new PostService().getPosts(),
+      content
     }
   };
 };
