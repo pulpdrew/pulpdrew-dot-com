@@ -1,6 +1,5 @@
 import { GetStaticPaths, GetStaticProps } from "next";
-import PostService from "../../lib/post-service";
-import Post from "../../lib/post";
+import { Post, PostService } from "../../lib/post";
 import Nav, { NavItem } from "../../components/nav";
 import styles from "../../styles/post.module.css";
 import Head from "next/head";

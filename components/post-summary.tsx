@@ -1,4 +1,4 @@
-import Post from "../lib/post";
+import { Post } from "../lib/post";
 import Link from "next/link";
 
 export interface PostSummaryProps {
