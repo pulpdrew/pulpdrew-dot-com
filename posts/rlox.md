@@ -2,6 +2,8 @@
 title: RLox - A Lox Interpreter in Rust
 tags:
   - tech
+  - rust
+  - programming languages
 summary: Lox is a programming language designed by Bob Nystrom for use in his excellent book, "Crafting Interpreters." Nystrom walks readers through building two Lox interpreters - a Tree-Walk interpreter written in Java and a Single Pass Bytecode Compiler + Stack-based VM written in C. After working my way through the book, I decided to implement a third version of the interpreter in Rust.
 date: 2020-05-26
 ---

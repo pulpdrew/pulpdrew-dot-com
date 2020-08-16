@@ -1,5 +1,6 @@
 import { Post } from "../lib/post";
 import Link from "next/link";
+import { TagChipList } from "./tag-chip";
 
 export interface PostSummaryProps {
   post: Post;
@@ -8,11 +9,12 @@ export interface PostSummaryProps {
 const PostSummary: React.FC<PostSummaryProps> = ({post}) => {
   return (
     <article className="mt-10">
-      <div className="flex justify-between mb-3 align-bottom flex-wrap">
+      <div className="flex justify-between mb-2 align-bottom flex-wrap">
         <h2 className="text-lg font-bold mr-5">{post.title}</h2>
-      <p>{post.date}</p>
+        <p>{post.date}</p>
       </div>
-      <p>{post.summary}</p>
+      <TagChipList tags={post.tags}></TagChipList>
+      <p className="mt-2">{post.summary}</p>
       <Link href="/posts/[slug]" as={`/posts/${post.slug}`}><a className="text-sm">Read more...</a></Link>
     </article>
   );
