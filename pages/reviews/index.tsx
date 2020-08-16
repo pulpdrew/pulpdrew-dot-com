@@ -20,7 +20,7 @@ const BookReviewPage: React.FC<BookReviewPageProps> = ({ reviews }) => {
 
       <Nav selected={NavItem.BOOKS}></Nav>
 
-      <main className="sm:container mx-auto mt-10">
+      <main className="sm:container mx-auto mt-10 md:px-20">
         {reviews.map((review) => <BookReviewSummary review={review} key={review.slug}></BookReviewSummary>)}
       </main>
 

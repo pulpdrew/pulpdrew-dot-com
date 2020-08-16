@@ -13,7 +13,7 @@ const PostPage: React.FC<{post: Post}> = ({ post }) => {
       
       <Nav selected={NavItem.NONE}></Nav>
       
-      <div className="sm:container mx-auto">
+      <div className="sm:container mx-auto md:px-20">
         <h1 className="text-3xl mt-5 mb-1">{post.title}</h1>
         <h2 className="text-xl mb-5">{post.date}</h2>
         <span className={styles.post} dangerouslySetInnerHTML={{ __html: post.html }}></span>
