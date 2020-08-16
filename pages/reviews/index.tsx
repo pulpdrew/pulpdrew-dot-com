@@ -31,7 +31,7 @@ const BookReviewPage: React.FC<BookReviewPageProps> = ({ reviews }) => {
 export default BookReviewPage;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const reviews = new BookReviewService().getReviews().sort(mostRecentFirst);
+  const reviews = new BookReviewService().reviews.sort(mostRecentFirst);
 
   return {
     props: {

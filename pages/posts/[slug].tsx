@@ -25,7 +25,7 @@ const PostPage: React.FC<{post: Post}> = ({ post }) => {
 export default PostPage;
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = new PostService().getPosts().map(post => {
+  const paths = new PostService().posts.map(post => {
     return {
       params: { slug: post.slug },
     };
@@ -38,6 +38,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const post = new PostService().getPosts().find(post => post.slug === params.slug);
+  const post = new PostService().posts.find(post => post.slug === params.slug);
   return { props: { post } };
 }

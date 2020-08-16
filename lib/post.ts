@@ -21,7 +21,7 @@ export class PostService {
    this. md.use(highlightjs);
   }
 
-  getPosts(): Post[] {
+  get posts(): Post[] {
     return readMatters(POSTS_DIR)
       .map<Post>((matter) => {
         const html = this.md.render(matter.content);

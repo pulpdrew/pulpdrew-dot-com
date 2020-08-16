@@ -23,7 +23,7 @@ export class BookReviewService {
    this. md.use(highlightjs);
   }
 
-  getReviews(): BookReview[] {
+  get reviews(): BookReview[] {
     return readMatters(BOOK_REVIEW_DIR)
       .map<BookReview>((matter) => {
         const html = this.md.render(matter.content);

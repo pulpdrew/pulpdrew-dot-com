@@ -25,7 +25,7 @@ const BookReviewPage: React.FC<{review: BookReview}> = ({ review }) => {
 export default BookReviewPage;
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = new BookReviewService().getReviews().map(review => {
+  const paths = new BookReviewService().reviews.map(review => {
     return {
       params: { slug: review.slug },
     };
@@ -38,6 +38,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const review = new BookReviewService().getReviews().find(review => review.slug === params.slug);
+  const review = new BookReviewService().reviews.find(review => review.slug === params.slug);
   return { props: { review: review } };
 }

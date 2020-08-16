@@ -38,8 +38,8 @@ const Home: React.FC<HomeProps> = ({ content }) =>  {
 export default Home;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const posts = new PostService().getPosts() as (Typed & Slugged & Dated)[];
-  const reviews = new BookReviewService().getReviews() as (Typed & Slugged & Dated)[];
+  const posts = new PostService().posts as (Typed & Slugged & Dated)[];
+  const reviews = new BookReviewService().reviews as (Typed & Slugged & Dated)[];
   const content = posts.concat(reviews).sort(mostRecentFirst);
 
   return {
