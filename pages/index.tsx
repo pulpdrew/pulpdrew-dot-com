@@ -3,7 +3,7 @@ import Nav, { NavItem } from '../components/nav';
 import PostSummary from '../components/post-summary';
 import { Post, PostService } from '../lib/post';
 import { GetStaticProps } from 'next';
-import { BookSummaryService, BookSummaryData } from '../lib/review';
+import { BookSummaryService, BookSummaryData } from '../lib/book';
 import { Slugged, Typed, mostRecentFirst, Dated } from '../lib/utils';
 import { BOOK_REVIEW_TYPE } from '../lib/types';
 import BookSummary from '../components/book-summary';

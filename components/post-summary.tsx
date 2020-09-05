@@ -13,9 +13,9 @@ const PostSummary: React.FC<PostSummaryProps> = ({post}) => {
         <h2 className="text-lg font-bold mr-5">{post.title}</h2>
         <p>{post.date}</p>
       </div>
-      <TagChipList tags={post.tags}></TagChipList>
       <p className="mt-2">{post.summary}</p>
       <Link href="/posts/[slug]" as={`/posts/${post.slug}`}><a className="text-sm">Read more...</a></Link>
+      <TagChipList tags={post.tags}></TagChipList>
     </article>
   );
 }

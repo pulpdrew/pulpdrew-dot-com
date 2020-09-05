@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { GetStaticProps } from 'next';
-import { BookSummaryData, BookSummaryService } from '../../lib/review';
+import { BookSummaryData, BookSummaryService } from '../../lib/book';
 import Nav, { NavItem } from '../../components/nav';
 import PostSummary from '../../components/post-summary';
 import { Post } from '../../lib/post';

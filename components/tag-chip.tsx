@@ -9,7 +9,7 @@ export const TagChip: React.FC<{ tag: string }> = ({ tag }) => {
 
 export const TagChipList: React.FC<{ tags: string[] }> = ({ tags }) => {
   return (
-    <div className="mb-1">
+    <div className="mb-1 mt-3">
       {tags.map((tag) => <TagChip tag={tag} key={tag}></TagChip>)}
     </div>
   );
