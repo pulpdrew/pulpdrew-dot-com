@@ -1,32 +1,21 @@
 import path from 'path';
-import MarkdownIt from 'markdown-it';
-import highlightjs from 'markdown-it-highlightjs';
 import { Slugged, Dated, mostRecentFirst, readMatters, Typed } from './utils';
 import { BOOK_REVIEW_TYPE } from './types';
 
-const BOOK_REVIEW_DIR = path.join(process.cwd(), 'reviews');
+const BOOK_REVIEW_DIR = path.join(process.cwd(), 'books');
 
-export interface BookReview extends Slugged, Dated, Typed {
+export interface BookSummaryData extends Slugged, Dated, Typed {
   title: string;
   author: string;
   link: string;
   summary: string;
-  html: string;
   tags: string[];
 }
 
-export class BookReviewService {
-
-  private md = new MarkdownIt();
-
-  constructor() {
-   this. md.use(highlightjs);
-  }
-
-  get reviews(): BookReview[] {
+export class BookSummaryService {
+  get reviews(): BookSummaryData[] {
     return readMatters(BOOK_REVIEW_DIR)
-      .map<BookReview>((matter) => {
-        const html = this.md.render(matter.content);
+      .map<BookSummaryData>((matter) => {
 
         let date = '';
         try {
@@ -44,7 +33,6 @@ export class BookReviewService {
           tags: matter.data.tags,
           type: BOOK_REVIEW_TYPE,
           date,
-          html,
         };
       })
       .sort(mostRecentFirst);

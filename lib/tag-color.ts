@@ -1,6 +1,6 @@
 export class TagColorService {
 
-  private static colorList = ["blue", "green", "red", "purple", "orange", "teal", ];
+  private static colorList = ["blue", "green", "red", "purple", "orange", "teal"];
   private static colorMap = new Map<string, string>();
 
   private static getBaseColor(tag: string): string {

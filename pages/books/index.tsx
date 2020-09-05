@@ -1,14 +1,14 @@
 import Head from 'next/head'
 import { GetStaticProps } from 'next';
-import { BookReview, BookReviewService } from '../../lib/review';
+import { BookSummaryData, BookSummaryService } from '../../lib/review';
 import Nav, { NavItem } from '../../components/nav';
 import PostSummary from '../../components/post-summary';
 import { Post } from '../../lib/post';
 import { mostRecentFirst } from '../../lib/utils';
-import BookReviewSummary from '../../components/review-summary';
+import BookSummary from '../../components/book-summary';
 
 interface BookReviewPageProps {
-  reviews: BookReview[];
+  reviews: BookSummaryData[];
 }
 
 const BookReviewPage: React.FC<BookReviewPageProps> = ({ reviews }) => {
@@ -21,7 +21,7 @@ const BookReviewPage: React.FC<BookReviewPageProps> = ({ reviews }) => {
       <Nav selected={NavItem.BOOKS}></Nav>
 
       <main className="sm:container mx-auto mt-10 md:px-20">
-        {reviews.map((review) => <BookReviewSummary review={review} key={review.slug}></BookReviewSummary>)}
+        {reviews.map((review) => <BookSummary review={review} key={review.slug}></BookSummary>)}
       </main>
 
     </div>
@@ -31,7 +31,7 @@ const BookReviewPage: React.FC<BookReviewPageProps> = ({ reviews }) => {
 export default BookReviewPage;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const reviews = new BookReviewService().reviews.sort(mostRecentFirst);
+  const reviews = new BookSummaryService().reviews.sort(mostRecentFirst);
 
   return {
     props: {
