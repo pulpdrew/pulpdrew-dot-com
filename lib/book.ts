@@ -9,6 +9,7 @@ export interface BookSummaryData extends Slugged, Dated, Typed {
   author: string;
   summary: string;
   tags: string[];
+  rating: number;
 }
 
 export class BookSummaryService {
@@ -29,6 +30,7 @@ export class BookSummaryService {
           summary: matter.data.summary,
           slug: matter.slug,
           tags: matter.data.tags,
+          rating: matter.data.rating,
           type: BOOK_REVIEW_TYPE,
           date,
         };

@@ -11,7 +11,7 @@ export enum NavItem {
 }
 
 const selectedClasses = "text-lg mb-1 mx-1 border-b-2 border-blue-700";
-const defaultClasses = "text-lg mb-1 nx-1";
+const defaultClasses = "text-lg mb-1 mx-1 border-b-2";
 
 const Nav: React.FC<{selected: NavItem}> = ({selected}) => {
   return (
