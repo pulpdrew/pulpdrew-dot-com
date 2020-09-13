@@ -21,7 +21,7 @@ const Home: React.FC<HomeProps> = ({ content }) =>  {
 
       <Nav selected={NavItem.MAIN}></Nav>
 
-      <main className="sm:container mx-auto mt-10 md:px-20">
+      <main className="sm:container mx-auto mt-10 md:px-20 mb-10">
         {content.map((item) => {
           if (item.type === BOOK_REVIEW_TYPE) {
             return <BookSummary review={item as BookSummaryData} key={item.slug}></BookSummary>

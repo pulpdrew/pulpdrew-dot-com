@@ -7,7 +7,6 @@ const BOOK_REVIEW_DIR = path.join(process.cwd(), 'books');
 export interface BookSummaryData extends Slugged, Dated, Typed {
   title: string;
   author: string;
-  link: string;
   summary: string;
   tags: string[];
 }
@@ -27,7 +26,6 @@ export class BookSummaryService {
         return {
           title: matter.data.title,
           author: matter.data.author,
-          link: matter.data.link,
           summary: matter.data.summary,
           slug: matter.slug,
           tags: matter.data.tags,
