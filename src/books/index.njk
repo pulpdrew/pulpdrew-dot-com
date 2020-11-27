@@ -4,23 +4,28 @@ tab: books
 title: Books
 ---
 
-<div class="mx-1 md:mx-auto w-12/12 md:w-8/12">
+<div class="mx-1 md:mx-auto w-12/12 md:w-8/12 md:mt-10">
+
+  <h2 class="text-xl mb-2 text-center">Some books that I've read.</h2>
+  <p class="font-thin mb-8 text-center">And some of my thoughts about them.</p>
+
   {%- for book in collections.book | reverse -%}
 
   <!-- Book Summary -->
-  <article class="mt-10">
+  <article class="flex flex-col p-4 my-6 md:mx-0 shadow-md border-t-2 border-blue-800">
 
-    <div class="flex justify-between mb-2 align-bottom flex-wrap">
+    <div class="flex justify-between mb-1 align-bottom flex-wrap">
       <h2 class="text-xl font-bold mr-5">{{ book.data.title }}</h2>
       <time>{{ book.data.date.toLocaleDateString() }}</time>
     </div>
-
-    <span>Author: {{ book.data.author }}</span>
-    <span class="ml-5">Rating: {{ book.data.rating }} / 10</span>
-    <a href="{{ book.data.url }}" class="ml-5 text-blue-800">Get Book</a>
-
+    <span class="font-thin">By {{ book.data.author }}</span>
+      
     <p class="mt-2">{{ book.templateContent | safe }}</p>
 
+    <div class="flex justify-start mt-2 flex-wrap">
+      <span>Rating: {{ book.data.rating }} / 10</span>
+      <a href="{{ book.data.url }}" class="ml-6 text-blue-800">Get Book</a>
+    </div>
   </article>
 
   {%- endfor -%}
