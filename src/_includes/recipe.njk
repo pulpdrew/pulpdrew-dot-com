@@ -1,0 +1,13 @@
+---
+tab: recipes
+title: Pulpdrew's Recipes
+layout: base
+---
+
+<div class="mx-1 md:mx-auto w-12/12 md:w-8/12">
+  <h1 class="mt-12 mb-2 font-semibold text-2xl">{{ title }}</h1>
+  <p>{{ description }}</p>
+  <div class="mt-8 recipe">
+    {{ content | safe }}
+  </div>
+</div>

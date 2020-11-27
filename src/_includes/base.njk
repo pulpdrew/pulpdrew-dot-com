@@ -1,0 +1,35 @@
+---
+title: Pulpdrew
+---
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>{{ title }}</title>
+  <link rel="stylesheet" href="/styles/tailwind.css">
+  <link rel="stylesheet" href="/styles/tech.css">
+  <link rel="stylesheet" href="/styles/recipe.css">
+  <link rel="stylesheet" href="/styles/prism-theme.css">
+</head>
+
+<body>
+  <nav
+    class="flex flex-col mt-1 mx-3 md:mx-auto md:flex-row md:flex-wrap md:space-x-36 md:justify-center md:mt-8 md:text-lg">
+    <a href="/"
+      class="md:p-2 md:border-b-2 md:hover:border-gray-300 {{ 'font-bold md:font-normal md:border-blue-700' if tab == 'pulpdrew' else 'border-transparent' }}">Pulpdrew</a>
+    <a href="/tech"
+      class="md:p-2 md:border-b-2 md:hover:border-gray-300 {{ 'font-bold md:font-normal md:border-blue-700' if tab == 'tech' else 'border-transparent' }}">Tech</a>
+    <a href="/books"
+      class="md:p-2 md:border-b-2 md:hover:border-gray-300 {{ 'font-bold md:font-normal md:border-blue-700' if tab == 'books' else 'border-transparent' }}">Books</a>
+    <a href="/recipes"
+      class="md:p-2 md:border-b-2 md:hover:border-gray-300 {{ 'font-bold md:font-normal md:border-blue-700' if tab == 'recipes' else 'border-transparent' }}">Recipes</a>
+  </nav>
+
+  <main class="m-3">
+    {{ content | safe }}
+  </main>
+</body>
+
+</html>

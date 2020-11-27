@@ -1,0 +1,13 @@
+---
+tab: tech
+title: Pulpdrew's Tech Stuff
+layout: base
+---
+
+<div class="mx-1 md:mx-auto w-12/12 md:w-8/12">
+  <h1 class="mt-12 font-semibold text-2xl">{{ title }}</h1>
+  <span>{{ date.toLocaleDateString() }}</span>
+  <div class="mt-8 md-content">
+    {{ content | safe }}
+  </div>
+</div>

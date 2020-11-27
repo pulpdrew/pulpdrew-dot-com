@@ -1,0 +1,27 @@
+---
+layout: base
+tab: books
+title: Books
+---
+
+<div class="mx-1 md:mx-auto w-12/12 md:w-8/12">
+  {%- for book in collections.book | reverse -%}
+
+  <!-- Book Summary -->
+  <article class="mt-10">
+
+    <div class="flex justify-between mb-2 align-bottom flex-wrap">
+      <h2 class="text-xl font-bold mr-5">{{ book.data.title }}</h2>
+      <time>{{ book.data.date.toLocaleDateString() }}</time>
+    </div>
+
+    <span>Author: {{ book.data.author }}</span>
+    <span class="ml-5">Rating: {{ book.data.rating }} / 10</span>
+    <a href="{{ book.data.url }}" class="ml-5 text-blue-800">Get Book</a>
+
+    <p class="mt-2">{{ book.templateContent | safe }}</p>
+
+  </article>
+
+  {%- endfor -%}
+</div>

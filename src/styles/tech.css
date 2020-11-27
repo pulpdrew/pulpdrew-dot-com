@@ -1,0 +1,44 @@
+
+.md-content a {
+  @apply text-blue-800;
+}
+
+.md-content p {
+  @apply mb-2;
+  @apply leading-relaxed;
+}
+
+.md-content h1 {
+  @apply text-2xl;
+  @apply mt-4;
+  @apply mb-4;
+  @apply font-semibold;
+}
+
+.md-content h2 {
+  @apply text-xl;
+  @apply mt-4;
+  @apply mb-2;
+  @apply font-semibold;
+}
+
+.md-content h3 {
+  @apply text-lg;
+  @apply mt-4;
+  @apply mb-2;
+  @apply font-semibold;
+}
+
+.md-content li {
+  @apply list-disc;
+  @apply list-inside;
+  @apply ml-2;
+}
+
+.md-content ul {
+  @apply mb-2;
+}
+
+.md-content pre {
+  @apply mb-4;
+}

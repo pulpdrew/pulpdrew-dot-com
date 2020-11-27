@@ -1,0 +1,24 @@
+---
+layout: base
+tab: tech
+title: Tech
+---
+
+<div class="mx-1 md:mx-auto w-12/12 md:w-8/12">
+  {%- for post in collections.tech | reverse -%}
+
+  <!-- Post Summary -->
+  <article class="mt-10">
+
+    <div class="flex justify-between mb-2 align-bottom flex-wrap">
+      <h2 class="text-xl font-bold mr-5">{{ post.data.title }}</h2>
+      <time>{{ post.data.date.toLocaleDateString() }}</time>
+    </div>
+
+    <p class="mt-2">{{ post.data.summary }}</p>
+    <a href="{{ post.url }}" class="text-sm text-blue-800">Read more...</a>
+
+  </article>
+
+  {%- endfor -%}
+</div>

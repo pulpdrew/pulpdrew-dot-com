@@ -1,0 +1,34 @@
+---
+layout: base
+tab: recipes
+title: Recipes
+---
+
+<div class="mx-1 w-full md:mx-auto md:w-8/12 md:mt-10 ">
+
+  <h2 class="text-xl mb-2 text-center">A collection of my favorite recipes.</h2>
+  <p class="font-thin mb-8 text-center">Presented with short comments at the end and without a rambling blog post at the beginning.</p>
+
+  <div class="md:grid md:grid-cols-2 md:gap-3">
+  
+    {%- for recipe in collections.recipe | reverse -%}
+
+    <a href="{{ recipe.url }}"
+      class="flex flex-col p-4 mb-2 mr-3 md:mx-0 shadow-md border-t-2 border-blue-800 hover:shadow-xl hover:bg-blue-50 cursor-pointer">
+
+      <h2 class="text-xl font-semibold">{{ recipe.data.title }}</h2>
+      <time class="mr-2 font-thin">{{ recipe.data.cooktime }}</time>
+      
+      <p class="mt-3">{{ recipe.data.description }}</p>
+
+      <div class="flex flex-row mt-4 flex-1 flex-wrap content-end">
+        {%- for category in recipe.data.categories -%}
+        <span class="mr-2 px-1 rounded-sm bg-blue-100 text-blue-900 text-sm">{{ category }}</span>
+        {%- endfor -%}
+      </div>
+    </a>
+
+    {%- endfor -%}
+  
+  </div>  
+</div>
