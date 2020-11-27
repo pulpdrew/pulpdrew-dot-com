@@ -4,7 +4,7 @@ tab: tech
 title: Tech
 ---
 
-<div class="mx-1 md:mx-auto w-12/12 md:w-8/12 md:mt-10">
+<div class="mx-1 lg:mx-auto w-12/12 lg:w-8/12 lg:mt-10">
 
   <h2 class="text-xl mb-2 text-center">Technology and Programming.</h2>
   <p class="font-thin mb-8 text-center">Stuff for nerds.</p>
@@ -12,7 +12,7 @@ title: Tech
   {%- for post in collections.tech | reverse -%}
 
   <!-- Post Summary -->
-  <a href="{{ post.url }}" class="mt-10 flex flex-col p-4 my-6 md:mx-0 shadow-md border-t-2 border-blue-800 hover:shadow-xl hover:bg-blue-50 cursor-pointer">
+  <a href="{{ post.url }}" class="mt-10 flex flex-col p-4 my-6 lg:mx-0 shadow-md border-t-2 border-blue-800 hover:shadow-xl hover:bg-blue-50 cursor-pointer">
 
     <div class="flex justify-between mb-2 align-bottom flex-wrap">
       <h2 class="text-xl font-semibold mr-5">{{ post.data.title }}</h2>

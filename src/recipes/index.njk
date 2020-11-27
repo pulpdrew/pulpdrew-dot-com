@@ -4,17 +4,17 @@ tab: recipes
 title: Recipes
 ---
 
-<div class="mx-1 w-full md:mx-auto md:w-8/12 md:mt-10 ">
+<div class="mx-1 w-full lg:mx-auto lg:w-8/12 lg:mt-10 ">
 
   <h2 class="text-xl mb-2 text-center">A collection of my favorite recipes.</h2>
   <p class="font-thin mb-8 text-center">Presented with short comments at the end and without a rambling blog post at the beginning.</p>
 
-  <div class="md:grid md:grid-cols-2 md:gap-3">
+  <div class="lg:grid lg:grid-cols-2 lg:gap-3">
   
     {%- for recipe in collections.recipe | reverse -%}
 
     <a href="{{ recipe.url }}"
-      class="flex flex-col p-4 my-6 mr-3 md:mx-0 md:my-2 shadow-md border-t-2 border-blue-800 hover:shadow-xl hover:bg-blue-50 cursor-pointer">
+      class="flex flex-col p-4 my-6 mr-3 lg:mx-0 lg:my-2 shadow-md border-t-2 border-blue-800 hover:shadow-xl hover:bg-blue-50 cursor-pointer">
 
       <h2 class="text-xl font-semibold">{{ recipe.data.title }}</h2>
       <time class="mr-2 font-thin">{{ recipe.data.cooktime }}</time>
