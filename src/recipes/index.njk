@@ -14,7 +14,7 @@ title: Recipes
     {%- for recipe in collections.recipe | reverse -%}
 
     <a href="{{ recipe.url }}"
-      class="flex flex-col p-4 mb-2 mr-3 md:mx-0 shadow-md border-t-2 border-blue-800 hover:shadow-xl hover:bg-blue-50 cursor-pointer">
+      class="flex flex-col p-4 my-6 mr-3 md:mx-0 md:my-2 shadow-md border-t-2 border-blue-800 hover:shadow-xl hover:bg-blue-50 cursor-pointer">
 
       <h2 class="text-xl font-semibold">{{ recipe.data.title }}</h2>
       <time class="mr-2 font-thin">{{ recipe.data.cooktime }}</time>
