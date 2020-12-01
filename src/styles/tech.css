@@ -42,3 +42,15 @@
 .md-content pre {
   @apply mb-4;
 }
+
+.md-content td, .md-content th, .md-content tr {
+  @apply px-2;
+  @apply py-1;
+  @apply border-collapse;
+  @apply border-gray-500;
+  @apply border-2;
+}
+
+.md-content table {
+  @apply my-6;
+}
