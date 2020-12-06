@@ -20,9 +20,9 @@ title: Books
     </div>
     <span class="font-thin">By {{ book.data.author }}</span>
       
-    <p class="mt-2">{{ book.templateContent | safe }}</p>
+    <div class="mt-2 md-content">{{ book.templateContent | safe }}</div>
 
-    <div class="flex justify-start mt-2 flex-wrap">
+    <div class="flex justify-start flex-wrap">
       <span>Rating: {{ book.data.rating }} / 10</span>
       <a href="{{ book.data.url }}" class="ml-6 text-blue-800">Get Book</a>
     </div>
