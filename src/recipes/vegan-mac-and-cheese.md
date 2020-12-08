@@ -11,7 +11,7 @@ tags: recipe
 
 - 1/2 cup margarine / vegan butter
 - 6 Tbsp All Purpose Flour
-- 3 x 14oz Cans Coconut Milk or 5 cups unsweetened soy milk
+- 3 x 14oz Cans Unsweetened Coconut Milk or 5 cups unsweetened soy milk
 - 1 cup Vegetable Stock
 - 3 Tbsp Dijon Mustard
 - 1 cup Nutritional Yeast
@@ -22,7 +22,6 @@ tags: recipe
 - 1 18oz Pack Elbow Macaroni
 - ½ cup breadcrumbs
 - 2 Tbsp margarine, melted
-
 
 ### Directions:
 
