@@ -10,11 +10,11 @@ date: 2020-12-08
 layout: tech
 ---
 
-A couple of weeks ago, I worked through [Learn Assembly by Writing Entirely Too Many Brainfuck Compilers](https://github.com/pretzelhammer/rust-blog/blob/master/posts/too-many-Brainfuck-compilers.md). That article covers the basics of compiling Brainfuck to target x86, ARM, wasm, and LLVM IR. Here, I will cover some of the same information, but with a focus on targeting RISC-V assembly.
+A couple of weeks ago, I worked through [Learn Assembly by Writing Entirely Too Many Brainfuck Compilers](https://github.com/pretzelhammer/rust-blog/blob/master/posts/too-many-brainfuck-compilers.md). That article covers the basics of compiling Brainfuck to target x86, ARM, wasm, and LLVM IR. Here, I will cover some of the same information, but with a focus on targeting RISC-V assembly.
 
 ## Brainfuck
 
-Brainfuck is an [esoteric programming language](https://en.wikipedia.org/wiki/Esoteric_programming_language), with 8 instructions and a tendency to frustrate and amuse programmers. Brainfuck programs are inscrutable sequences of those instructions that manipulate a single global pointer and a 30KB memory space. 
+Brainfuck is an [esoteric programming language](https://en.wikipedia.org/wiki/Esoteric_programming_language), with 8 instructions that manipulate a single global pointer and a 30KB memory space. Brainfuck programs are inscrutable sequences of those instructions that tend to amuse programmers.
 
 |Instruction|description|
 |-----------|-----------|
@@ -32,9 +32,14 @@ A few other details:
 - All the bytes in memory are initialized to 0 when the program starts.
 - Moving the pointer outside the 0-29999 range of memory addresses is undefined behavior.
 
+As an example, the following program would move to the second byte of memory, increment it 65 times, and print it out. 65 is 'A' in ASCII, so running the program would result in 'A' being printed to stdout.
+
+```text
+>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++.
+```
 ## Parsing Brainfuck in Rust
 
-We will represent Brainfuck instructions with a Rust Enum, with variants for each instruction. To optimize our programs, instead of storing and executing multiple consecutive, identical instructions, most instructions will have an associated `count` field, indicating how many times in a row that instruction occurred in the source program. So, for example, the Brainfuck program `+++++` would be translated into a single `Instruction::AddByte { count: 5 }`, rather than five `Instruction::AddByte`. The `[` and `]` instructions do not have `count` fields. Instead, they store the index of the instruction that they will jump to, if they jump. The full enum declaration is:
+We will represent Brainfuck instructions with a Rust Enum, with variants for each instruction. To optimize our programs, instead of storing and executing multiple consecutive, identical instructions, most instructions will have an associated `count` field, indicating how many times in a row that instruction occurred in the source program. So, for example, the Brainfuck program `+++++` would be translated into a single `Instruction::AddByte { count: 5 }`, rather than five `Instruction::AddByte`s in a row. The `[` and `]` instructions do not have `count` fields. Instead, they store the index of the instruction that they will jump to, if they jump. The full enum declaration is:
 
 ```rust
 #[derive(Debug, Clone, Copy)]
@@ -53,6 +58,7 @@ pub enum Instruction {
 To make parsing a little easier, we will write some methods for this enum. The first constructs an Instruction from a source character. The next three will help us modify the count and target fields while parsing. The last will allow us to compare two `Instructions` based only on their variant, rather than both their variant and their field.
 
 ```rust
+/// Constructs an Instruction from the given char, if possible
 pub fn from_char(c: char) -> Option<Self> {
     match c {
         '>' => Some(Instruction::AddPtr { count: 1 }),
@@ -107,7 +113,7 @@ pub fn variant_eq(&self, other: &Self) -> bool {
 }
 ```
 
-Now that we have an enum to model our instructions, we need a function to transform a Brainfuck source string into a `Vec<Instruction>`, which we can later compile:
+Now that we have an enum to model our instructions, we need a function to transform a Brainfuck source string into a `Vec<Instruction>`, which we can later compile into RISC-V.
 
 ```rust
 /// Parse a Brainfuck source string
@@ -441,4 +447,4 @@ fn main() {
 }
 ```
 
-And that's it, you've completed a Brainfuck to RISC-V compiler. The complete source can be found [here](https://github.com/pulpdrew/bf-to-riscv). If you want to run the output assembly programs, you'll need to download [RARS](https://github.com/TheThirdOne/rars), a RISC-V assembler and emulator.
+And that's it, you've completed a Brainfuck to RISC-V compiler. The complete source can be found [here](https://github.com/pulpdrew/bf-to-riscv). If you want to run the output assembly programs, you'll need to download [RARS](https://github.com/TheThirdOne/rars), a RISC-V assembler and emulator. If you want some sample Brainfuck programs to compile (who, after all, would ever want to write one themselves?), several are available from the original [companion code repository](https://github.com/pretzelhammer/brainfuck_compilers/tree/master/input) for "Learn Assembly by Writing Entirely Too Many Brainfuck Compilers."
