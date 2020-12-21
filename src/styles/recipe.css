@@ -32,7 +32,8 @@
 .recipe ul li {
   @apply list-disc;
   @apply list-inside;
-  @apply ml-2;
+  @apply ml-4;
+  @apply mb-1;
 }
 
 .recipe ul {
@@ -43,6 +44,8 @@
   @apply list-decimal;
   @apply list-inside;
   @apply leading-relaxed;
+  @apply mb-1;
+  @apply ml-4;
 }
 
 .recipe pre {
