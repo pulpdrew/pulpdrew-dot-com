@@ -2,7 +2,7 @@
 title: The Left Hand of Darkness
 author: Ursula K. Le Guin
 tags: book
-rating: 10
+rating: 9
 url: https://bookshop.org/books/the-left-hand-of-darkness/9780441478125
 date: 2020-09-12
 permalink: false
