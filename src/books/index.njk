@@ -14,8 +14,13 @@ title: Books
   <!-- Book Summary -->
   <article class="flex flex-col p-4 my-6 lg:mx-0 shadow-md border-t-2 border-blue-800">
 
-    <div class="flex justify-between mb-1 align-bottom flex-wrap">
-      <h2 class="text-xl font-semibold mr-5">{{ book.data.title }}</h2>
+    <div class="flex justify-between mb-1 align-bottom flex-wrap leading-7">
+      <span class="flex flex-wrap ">
+        <h2 class="text-xl font-semibold mr-4">{{ book.data.title }}</h2>
+        {% if book.data.series %} 
+          <h3 class="font-normal">({{book.data.series}})</h3>
+        {% endif %}
+      </span>
       <time>{{ book.data.date.toLocaleDateString() }}</time>
     </div>
     <span class="font-thin">By {{ book.data.author }}</span>
