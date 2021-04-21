@@ -1,6 +1,6 @@
 ---
 title: Shanghai Pan Fried Noodles
-description: 
+description: Thick, savory, delicious, and quick. These noodles will impress.
 categories: [Asian, Noodles]
 cooktime: 30 minutes
 layout: recipe
