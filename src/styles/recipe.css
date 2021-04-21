@@ -29,6 +29,11 @@
   @apply font-semibold;
 }
 
+.recipe h4 {
+  @apply mt-2;
+  @apply mb-1;
+}
+
 .recipe ul li {
   @apply list-disc;
   @apply list-inside;
