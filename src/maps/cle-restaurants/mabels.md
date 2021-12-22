@@ -1,6 +1,7 @@
 ---
 title: "Mabel's BBQ"
 tags: cleveland_restaurants
+permalink: false
 lat: 41.49900381432864
 lon: -81.69024252622819
 labels:
