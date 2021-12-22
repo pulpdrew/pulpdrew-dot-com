@@ -1,0 +1,39 @@
+---
+tab: maps
+title: A Map
+layout: base
+---
+
+<div id="map" class="h-full w-full my-4" data-lat={{lat}} data-lon={{lon}}></div>
+
+<div class="map-content mx-1 lg:mx-auto w-12/12 lg:w-8/12">
+   {{ content | safe }}
+   
+   {%- for item in collections[item_tag] -%}
+
+   <div class="map-item mb-8" data-lat={{item.data.lat}} data-lon={{item.data.lon}} data-title="{{item.data.title}}">
+      
+      <span class="flex items-center">
+         <h4>{{item.data.title}}</h4>
+         {%- for label in item.data.labels -%}
+            <span class="ml-4 bg-blue-800 text-white rounded-sm h-fit px-2 shadow-sm">{{ label }}</span>
+         {%- endfor -%}
+      </span>
+
+      {{ item.templateContent | safe }}
+
+      <a href="#map" class="map-link text-blue-800 text-sm">Show on Map</a>
+
+      <div class="popup-content hidden">
+         <h4>{{item.data.title}}</h4>
+         {{ item.templateContent | safe }}
+      </div>
+   </div>
+
+   {%- endfor -%}
+</div>
+
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin=""></script>
+<script src="/_public/map.js"></script>
