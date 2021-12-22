@@ -1,0 +1,30 @@
+---
+tab: Maps
+title: A Map
+layout: base
+---
+
+<div id="map" class="h-full w-full my-4" data-lat={{lat}} data-lon={{lon}}></div>
+
+<div class="map-content lg:mx-auto w-12/12 lg:w-8/12">
+   {{ content | safe }}
+   
+   {%- for item in collections[item_tag] -%}
+
+   <div class="map-item mb-8" data-lat={{item.data.lat}} data-lon={{item.data.lon}} data-title="{{item.data.title}}">
+      <h3>{{item.data.title</h3>
+      {{ item.templateContent | safe }}
+
+      <div class="popup-content hidden">
+         <h3>{{item.data.title}}</h3>
+         {{ item.templateContent | safe }}
+      </div>
+   </div>
+
+   {%- endfor -%}
+</div>
+
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin=""></script>
+<script src="/_public/map.js"></script>
