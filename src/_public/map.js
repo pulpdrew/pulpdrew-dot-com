@@ -1,9 +1,16 @@
+
+function delay(ms) {
+    return new Promise((resolve) => {
+        setTimeout(() => resolve(), ms);
+    });
+}
+
 const center = [
     +document.getElementById('map').getAttribute('data-lat'),
     +document.getElementById('map').getAttribute('data-lon'),
 ]
 
-var map = L.map('map', {
+const map = L.map('map', {
     center
 }).setView(center, 12);
 
@@ -18,12 +25,28 @@ L.tileLayer('https://tile.thunderforest.com/atlas/{z}/{x}/{y}.png?apikey=304145a
 for (item of document.getElementsByClassName("map-item")) {
     const lat = item.getAttribute("data-lat");
     const lon = item.getAttribute("data-lon");
-    const title = item.getAttribute("data-title");
+    
+    const marker = L.circleMarker([lat, lon], {
+        stroke: true,
+        color: "#FFFFFF",
+        weight: 2,
+        radius: 7,
+        fill: true,
+        fillColor: '#1E40AF',
+        fillOpacity: 1
+    });
 
-    console.log(item)
+    const popupHTML = item.querySelector(".popup-content").innerHTML;
+    marker.bindPopup(popupHTML);
 
-    var marker = L.marker([lat, lon], {
-        title,
-        riseOnHover: true,
-    }).bindPopup(item.querySelector(".popup-content").innerHTML).addTo(map);
+    link = item.querySelector(".map-link");
+    link.addEventListener('click', async () => {
+        map.closePopup();
+        await delay(250);
+        map.flyTo(marker.getLatLng(), 15, { duration: .25 });
+        await delay(250);
+        marker.openPopup();
+    });
+
+    marker.addTo(map);
 }
