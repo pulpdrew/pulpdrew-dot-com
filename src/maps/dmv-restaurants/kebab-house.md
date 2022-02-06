@@ -8,6 +8,7 @@ labels:
     - $
     - Afghan
     - Fast Casual
+    - D
 ---
 
 A counter-server Afghan restaurant with plenty of Kebab to go around. Unfortunately the meat was quite dry and underseasoned.

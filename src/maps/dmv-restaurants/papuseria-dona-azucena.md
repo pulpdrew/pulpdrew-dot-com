@@ -7,6 +7,7 @@ permalink: false
 labels:
     - $
     - Salvadoran
+    - B
 ---
 
 A simple, sit-down eatery serving authentic, cheap Salvadoran food. Try the papusas, or the enchiladas (which are nothing like Mexican Enchiladas).

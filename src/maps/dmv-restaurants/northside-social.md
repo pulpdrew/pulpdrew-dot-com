@@ -7,6 +7,7 @@ permalink: false
 labels:
     - $
     - Coffee
+    - A
 ---
 
 A cute little Coffee, Wine, and Pastry bar open all day and usually busy. I haven't tried much yet other than a White Chocolate Orange Biscotti (which was delicious).

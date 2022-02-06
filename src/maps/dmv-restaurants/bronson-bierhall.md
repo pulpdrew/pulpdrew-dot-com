@@ -8,6 +8,7 @@ labels:
     - $$
     - German
     - Bar
+    - C
 ---
 
 A bustling (noisy) bar with beer on tap and German-ish food. The pretzels are impressive.

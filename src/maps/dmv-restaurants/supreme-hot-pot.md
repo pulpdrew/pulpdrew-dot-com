@@ -8,6 +8,7 @@ labels:
     - $$$$
     - Chinese
     - Hot Pot
+    - A
 ---
 
 An upscale hot pot restaurant. It was absolutely delicious and the selection of ingredients was great. I thought it was a little on the pricy side.

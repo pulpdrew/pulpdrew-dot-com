@@ -8,6 +8,7 @@ labels:
     - $$
     - Peruvian
     - Fast Casual
+    - B
 ---
 
 A counter-serve Peruvian chain serving tender grilled chicken. The dark meat was excellent, the white meat left a little to be desired. The green sauce and plantains were delicious though.

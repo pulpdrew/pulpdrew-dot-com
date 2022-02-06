@@ -8,6 +8,7 @@ labels:
     - $
     - Korean
     - Fast Casual
+    - B
 ---
 
 A counter-serve Korean restaurant serving Bibimbap, other rice & noodle bowls, and Korean fried chicken, with a small variety of sauces and some fun bottled drinks.

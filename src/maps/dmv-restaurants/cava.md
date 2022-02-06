@@ -8,6 +8,7 @@ labels:
     - $
     - Mediterranean
     - Fast Casual
+    - B
 ---
 
 A counter-serve regional chain serving mediterranean-inspired salad and grain bowls, a "Mediterranean Chipotle" as they say.

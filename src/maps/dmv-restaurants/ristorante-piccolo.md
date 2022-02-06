@@ -7,6 +7,7 @@ permalink: false
 labels:
     - $$$
     - Italian
+    - B
 ---
 
 A charming little restaurant in the heart of Georgetown, serving traditional Italian Pastas and Entrees. It's nothing new, but it does the classics well.
