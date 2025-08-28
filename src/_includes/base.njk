@@ -11,10 +11,8 @@ title: Pulpdrew
   <title>{{ title }}</title>
   <link rel="stylesheet" href="/styles/tailwind.css">
   <link rel="stylesheet" href="/styles/tech.css">
-  <link rel="stylesheet" href="/styles/recipe.css">
   <link rel="stylesheet" href="/styles/prism-theme.css">
   <link rel="stylesheet" href="/styles/books.css">
-  <link rel="stylesheet" href="/styles/map.css">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
     integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
     crossorigin=""/>
@@ -29,10 +27,10 @@ title: Pulpdrew
       class="lg:p-2 lg:border-b-2 lg:hover:border-gray-300 {{ 'font-bold lg:font-normal lg:border-blue-700' if tab == 'tech' else 'border-transparent' }}">Tech</a>
     {# <a href="/books"
       class="lg:p-2 lg:border-b-2 lg:hover:border-gray-300 {{ 'font-bold lg:font-normal lg:border-blue-700' if tab == 'books' else 'border-transparent' }}">Books</a> #}
-    <a href="/recipes"
-      class="lg:p-2 lg:border-b-2 lg:hover:border-gray-300 {{ 'font-bold lg:font-normal lg:border-blue-700' if tab == 'recipes' else 'border-transparent' }}">Recipes</a>
-    <a href="/maps"
-      class="lg:p-2 lg:border-b-2 lg:hover:border-gray-300 {{ 'font-bold lg:font-normal lg:border-blue-700' if tab == 'maps' else 'border-transparent' }}">Maps</a>
+    <a href="https://recipes.pulpdrew.com"
+      class="lg:p-2 lg:border-b-2 lg:hover:border-gray-300 {{ 'font-bold lg:font-normal lg:border-blue-700' if tab == 'recipes' else 'border-transparent' }}">Recipes
+      <img src="/_public/external-link.svg" alt="external link" class="inline h-4" />
+      </a>
   </nav>
 
   <main>
